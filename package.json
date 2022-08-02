@@ -1,0 +1,28 @@
+{
+  "name": "codestates-fe-advanced-course",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yomae/codestates-fe-advanced-course.git"
+  },
+  "author": "yomae",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yomae/codestates-fe-advanced-course/issues"
+  },
+  "homepage": "https://github.com/yomae/codestates-fe-advanced-course#readme",
+  "dependencies": {
+    "antd": "^4.22.3",
+    "axios": "^0.27.2",
+    "next": "^12.2.3",
+    "react": "^18.2.0",
+    "styled-components": "^5.3.5"
+  }
+}
