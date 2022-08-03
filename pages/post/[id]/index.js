@@ -1,13 +1,20 @@
 import axios from "axios";
 import styled from "styled-components";
-import { Avatar, List } from "antd";
+import Link from "next/link";
+import { Avatar, List, Button } from "antd";
+
+const Title = styled.div`
+  width: 60%;
+  text-align: center;
+  padding: 30px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+`;
 
 const PostContainer = styled.div`
-  width: 70%;
+  width: 60%;
   margin: 0 auto;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  padding: 50px;
+  padding: 30px;
   border: 1px solid;
   border-radius: 30px;
 `;
@@ -18,35 +25,43 @@ const PostBody = styled.div`
 
 const Post = ({ posts, comments }) => {
   return (
-    <PostContainer>
-      <div style={{ textAlign: "center" }}>
-        <h2>{posts.title}</h2>
-      </div>
-      <div style={{ textAlign: "right" }}>작성자 : {posts.userId}</div>
+    <>
+      <Title>
+        <h1>Post</h1>
+        <Link href="/">
+          <Button style={{ float: "right" }}>뒤로 가기</Button>
+        </Link>
+      </Title>
+      <PostContainer>
+        <div style={{ textAlign: "center" }}>
+          <h2>{posts.title}</h2>
+        </div>
+        <div style={{ textAlign: "right" }}>작성자 : {posts.userId}</div>
 
-      <hr />
+        <hr />
 
-      <PostBody>
-        <h3>{posts.body}</h3>
-        <div style={{ textAlign: "right" }}>댓글 {comments.length}개</div>
-      </PostBody>
+        <PostBody>
+          <h3>{posts.body}</h3>
+          <div style={{ textAlign: "right" }}>댓글 {comments.length}개</div>
+        </PostBody>
 
-      <hr />
+        <hr />
 
-      <List
-        itemLayout="horizontal"
-        dataSource={comments}
-        renderItem={(item) => (
-          <List.Item>
-            <List.Item.Meta
-              avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
-              title={item.name}
-              description={item.body}
-            />
-          </List.Item>
-        )}
-      />
-    </PostContainer>
+        <List
+          itemLayout="horizontal"
+          dataSource={comments}
+          renderItem={(item) => (
+            <List.Item>
+              <List.Item.Meta
+                avatar={<Avatar src="https://joeschmoe.io/api/v1/random" />}
+                title={item.name}
+                description={item.body}
+              />
+            </List.Item>
+          )}
+        />
+      </PostContainer>
+    </>
   );
 };
 
